@@ -1,0 +1,43 @@
+{
+    "dev":{
+        "base_url": "https://www.saucedemo.com/inventory.html",
+        "user":{
+            "valid":{
+                "username": "standard_user",
+                "password": "secret_sauce"
+
+            },
+            "invalid":{
+                "username": "mbalentle",
+                "password": "secret_mbali"
+            }
+        }
+
+    },
+    "staging":{
+        "base_url": "https://www.saucedemo.com/inventory.html",
+        "user":{
+            "valid":{
+                "username": "visual_user",
+                "password": "secret_sauce"
+
+            },
+            "invalid":{
+                "username": "mbalentle",
+                "password": "secret_mbali"
+            }
+        }
+
+    },
+    "products":{
+        "product_1":{
+            "name": "Sauce Labs Backpack",
+            "price": "$29.99"
+        },
+        "product_2":{
+            "name": "Sauce Labs Bike Light",
+            "price": "$9.99"
+        }
+
+    }
+}
