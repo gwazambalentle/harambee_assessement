@@ -57,11 +57,11 @@ def verify_product_in_cart(user_email, product_name):
         
         sql = """
         SELECT user.username, cart.cartID, product.name, product.price, product.description, 
-productCart.quantity FROM ProductCart
-JOIN product ON productCart.productID = product.productID
-JOIN cart ON productCart.cartID = cart.cartID
-JOIN user ON cart.userID = user.userID
-WHERE username = %s
+        productCart.quantity FROM ProductCart
+        JOIN product ON productCart.productID = product.productID
+        JOIN cart ON productCart.cartID = cart.cartID
+        JOIN user ON cart.userID = user.userID
+        WHERE username = %s
         """
         cursor.execute(sql, (user_email, product_name))
         result = cursor.fetchone()
