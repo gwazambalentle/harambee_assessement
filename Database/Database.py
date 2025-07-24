@@ -34,7 +34,7 @@ def get_product_info(product_name):
    
     with conn.cursor() as cursor:
         # Retrieve product information by product name
-        sql = "SELECT id, name , price FROM products WHERE name = %s"
+        sql = "SELECT producid, description,name , price FROM products WHERE name = %s"
         cursor.execute(sql, (product_name,))
         result = cursor.fetchone()  # Fetch one record
         conn.close()  # Ensure the connection is closed
@@ -56,11 +56,12 @@ def verify_product_in_cart(user_email, product_name):
         # join cart and users on user_id
         
         sql = """
-        SELECT cart.id, cart.user_id, cart.product_id, products.name 
-        FROM cart 
-        JOIN products ON cart.product_id = products.id  //
-        JOIN users ON cart.user_id = users.id 
-        WHERE users.email = %s AND products.name = %s
+        SELECT user.username, cart.cartID, product.name, product.price, product.description, 
+productCart.quantity FROM ProductCart
+JOIN product ON productCart.productID = product.productID
+JOIN cart ON productCart.cartID = cart.cartID
+JOIN user ON cart.userID = user.userID
+WHERE username = %s
         """
         cursor.execute(sql, (user_email, product_name))
         result = cursor.fetchone()
